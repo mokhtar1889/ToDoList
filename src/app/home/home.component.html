@@ -1,0 +1,74 @@
+<div class="container my-4">
+  <form
+    [formGroup]="addItemForm"
+    (ngSubmit)="addItem(addItemForm)"
+    class="d-flex justify-content-center"
+  >
+    <input type="text" class="form-control w-50" formControlName="item" />
+    <button type="submit" class="btn btn-primary mx-2">add Task</button>
+  </form>
+  <!-- Button trigger modal -->
+  <button
+    type="button"
+    class="btn btn-danger d-block ms-auto my-3"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+    *ngIf="items.length > 0"
+  >
+    delete all tasks
+  </button>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            delete All tasks
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">are you sure you want to delete all tasks?</div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteAllTasks()"
+            data-bs-dismiss="modal"
+          >
+            delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngFor="let item of items"
+    class="border p-3 my-3 rounded fw-bolder d-flex justify-content-between"
+  >
+    <div class="align-self-center">{{ item }}</div>
+    <div>
+      <button class="btn btn-outline-danger" (click)="deleteItem(item)">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+  </div>
+</div>

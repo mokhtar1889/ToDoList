@@ -1,0 +1,41 @@
+<div class="container p-4">
+  <div class="row justify-content-between">
+    <div class="col-md-6">
+      <div class="login-image">
+        <img
+          src="../../assets/20944201.jpg"
+          class="w-100"
+          alt="this is image"
+        />
+      </div>
+    </div>
+    <div class="col-md-6 align-self-center">
+      <div class="h2 text-center fw-bolder my-4">Login now</div>
+      <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)" class="p-4">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="enter your email"
+            formControlName="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="enter your password"
+            formControlName="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mx-auto d-block">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
